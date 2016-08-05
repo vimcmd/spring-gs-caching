@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
+@EnableCaching
 public class Application {
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);
@@ -24,6 +26,9 @@ public class Application {
         public void run(String... strings) throws Exception {
             log.info(".... Fetching books");
             log.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
+            log.info("isbn-4567 -->" + bookRepository.getByIsbn("isbn-4567"));
+            log.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
+            log.info("isbn-4567 -->" + bookRepository.getByIsbn("isbn-4567"));
             log.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
             log.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
         }
